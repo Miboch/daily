@@ -1,0 +1,84 @@
+@mixin apply-theme() {
+  :root {
+
+    @include setupColor($base, 5);
+    @include setupColor($primary, 5);
+    @include setupColor($secondary, 5);
+    @include setupColor($primary_contrast);
+    @include setupColor($secondary_contrast);
+    @include setupColor($base_contrast);
+
+    font-size: 12pt;
+    line-height: 1.265rem;
+    font-family: Montserrat, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: col($base, -2);
+    color: col($base_contrast);
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: Raleway, sans-serif;
+    font-weight: 200;
+    margin: 1rem 0;
+  }
+
+  h5 {
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
+
+}
+
+
+$base: #242433;
+$primary: #FF5A7E;
+$secondary: #ffc400;
+$base_contrast: #e9e9eb;
+$primary_contrast: #e9e9ec;
+$secondary_contrast: #111;
+
+$colour-names: (
+  #242433: 'base',
+  #FF5A7E: 'primary',
+  #ffc400: 'secondary',
+  #e9e9eb: 'base_contrast',
+  #e9e9ec: 'primary_contrast',
+  #111: 'secondary_contrast'
+);
+
+
+@mixin setupColor($colour, $variants: 4) {
+  $name: map-get($colour-names, $colour);
+  #{'--' + $name}: $colour;
+  @for $i from 1 through $variants {
+    #{'--' + $name + '-t' + $i}: mix(white, $colour, $i*10)
+  }
+  @for $i from 1 through $variants {
+    #{'--' + $name + '-s' + $i}: mix(black, $colour, $i*10)
+  }
+}
+
+@function col($colour, $variant: 0) {
+  $name: map-get($colour-names, $colour);
+  @if ($variant > 0) {
+    @return #{'var(--' + $name +'-t' + $variant + ')'};
+  } @else if ($variant < 0) {
+    @return #{'var(--' + $name +'-s' + $variant*-1 + ')'};
+  } @else {
+    @return #{'var(--' + $name + ')'};
+  }
+}
+
+$shadow_colour: #201212;
+@mixin shadow() {
+  box-shadow: 4px 4px 4px -2px #201212;
+}
