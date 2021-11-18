@@ -1,0 +1,25 @@
+﻿@import 'theme';
+
+.task-header {
+  background-color: col($base, -7);
+  padding: .5rem;
+}
+
+.task-list {
+  background-color: #521b735f;
+
+  ::ng-deep {
+    app-task-item {
+      display: block;
+      border-bottom: 1px solid col($base, -4);
+
+      &:last-of-type {
+        border-color: transparent;
+      }
+    }
+
+  }
+
+
+}
+

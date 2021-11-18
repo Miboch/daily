@@ -1,16 +1,13 @@
 @mixin apply-theme() {
   :root {
 
-    @include setupColor($base, 5);
+    @include setupColor($base, 7);
     @include setupColor($primary, 5);
-    @include setupColor($secondary, 5);
     @include setupColor($primary_contrast);
-    @include setupColor($secondary_contrast);
     @include setupColor($base_contrast);
-
     font-size: 12pt;
     line-height: 1.265rem;
-    font-family: Montserrat, sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
 
   * {
@@ -39,20 +36,18 @@
 }
 
 
-$base: #242433;
-$primary: #FF5A7E;
-$secondary: #ffc400;
-$base_contrast: #e9e9eb;
-$primary_contrast: #e9e9ec;
-$secondary_contrast: #111;
+$base: #662290;
+$primary: #FFDD00;
+//$secondary: #ffc400;
+$base_contrast: #fafafa;
+$primary_contrast: #222;
+//$secondary_contrast: #111;
 
 $colour-names: (
-  #242433: 'base',
-  #FF5A7E: 'primary',
-  #ffc400: 'secondary',
-  #e9e9eb: 'base_contrast',
-  #e9e9ec: 'primary_contrast',
-  #111: 'secondary_contrast'
+  #662290: 'base',
+  #FFDD00: 'primary',
+  #fafafa: 'base_contrast',
+  #222: 'primary_contrast',
 );
 
 

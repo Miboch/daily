@@ -1,0 +1,15 @@
+﻿<div class="flex-row">
+  <h1>Tasks</h1>
+  <div class="add-tasks-action">
+    <fa-icon [icon]="addCircle"></fa-icon>
+    <span>Add Tasks</span>
+  </div>
+  <div class="detail-box">
+    <span>Completed: 0</span>
+    <span>Remaining: 0</span>
+  </div>
+
+
+</div>
+<app-task-panel heading="Today's Tasks" [tasks]="testTask"></app-task-panel>
+<app-task-panel heading="Yesterday's Incomplete Tasks" [tasks]="testTask"></app-task-panel>

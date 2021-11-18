@@ -1,0 +1,33 @@
+﻿@import 'theme';
+
+.add-tasks-action {
+  color: col($primary);
+  margin-left: 1rem;
+  user-select: none;
+  cursor: pointer;
+  font-size: 14pt;
+  white-space: nowrap;
+  span {
+    margin-left: .25rem;
+  }
+  &:hover {
+    color: col($primary, 3);
+
+  }
+}
+
+.detail-box {
+  margin-left: auto;
+  span {
+    white-space: nowrap;
+    padding: .25rem .5rem;
+    background-color: col($primary);
+    color: col($primary_contrast);
+    margin-right: 1rem;
+    border-radius: 5px;
+    user-select: none;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

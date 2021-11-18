@@ -1,0 +1,26 @@
+﻿@import 'theme';
+
+.task {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  &:hover {
+    background-color: col($base, 3);
+  }
+
+  button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: .25rem;
+    color: col($primary, 3);
+    &:hover {
+      background-color: col($primary);
+      color: col($base);
+    }
+  }
+
+}

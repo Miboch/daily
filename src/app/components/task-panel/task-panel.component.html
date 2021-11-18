@@ -1,0 +1,6 @@
+﻿<div class="task-container">
+  <div class="task-header">{{heading}}</div>
+  <div class="task-list">
+    <app-task-item *ngFor="let t of tasks" [task]="t"></app-task-item>
+  </div>
+</div>

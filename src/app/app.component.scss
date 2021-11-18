@@ -1,0 +1,44 @@
+@import'theme';
+
+.gutters {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.arrow-widget {
+  position: absolute;
+  top: 2rem;
+  left: -80px;
+  width: 100px;
+  box-sizing: border-box;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ico-wrapper {
+  justify-content: center;
+  align-items: center;
+  color: col($primary);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  font-size: 18pt;
+  user-select: none;
+  cursor: pointer;
+  padding: 1rem;
+  span {
+    font-size: 10pt;
+    margin-top: .25rem;
+  }
+
+  &:hover {
+    background-color: col($primary);
+    color: col($base);
+  }
+
+}

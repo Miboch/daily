@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'theme';
+
+
+@include apply-theme();
+
+body {
+  background-image: radial-gradient(col($base, 2), col($base, -5));
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
