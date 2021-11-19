@@ -1,18 +1,31 @@
 @import'theme';
 
 .gutters {
-  padding: 1rem;
+  padding: 0;
   margin: 0 auto;
   max-width: 1280px;
-  min-height: 100vh;
   position: relative;
 }
 
+.main-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+}
+
+.aside {
+  grid-column-start: 1;
+}
+
+.main-outlet {
+  grid-column-start: 2;
+}
+
+
 .arrow-widget {
-  position: absolute;
   top: 2rem;
-  left: -80px;
-  width: 100px;
+  width: 100%;
   box-sizing: border-box;
   min-height: 40px;
   display: flex;
@@ -26,7 +39,7 @@
   color: col($primary);
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
   font-size: 18pt;
   user-select: none;
   cursor: pointer;
@@ -41,4 +54,11 @@
     color: col($base);
   }
 
+}
+
+.date-decorator {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: col($primary)
 }

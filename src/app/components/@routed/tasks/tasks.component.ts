@@ -1,6 +1,10 @@
 ﻿import {Component, OnInit} from '@angular/core';
-import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import {Observable} from 'rxjs';
 import {TaskModel} from '../../../model/task.model';
+import {Store} from '@ngrx/store';
+import {selectDate, selectTasks} from '../../../store';
+import {map, switchMap} from 'rxjs/operators';
+import {DateTime} from 'luxon';
 
 @Component({
   templateUrl: './tasks.component.html',
@@ -8,38 +12,20 @@ import {TaskModel} from '../../../model/task.model';
 })
 
 export class TasksComponent implements OnInit {
-  addCircle = faPlusCircle;
-  testTask = [
-    {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    }, {
-      description: "lorem ipsum dolor set amet"
-    },
 
-  ] as TaskModel[];
+  tasksFromYesterday: Observable<TaskModel[]>;
+  tasksFromToday: Observable<TaskModel[]>;
 
 
-  constructor() {
+  constructor(private store: Store) {
+    this.tasksFromYesterday = this.store.select(selectDate).pipe(
+      switchMap(date => this.store.select(selectTasks).pipe(
+        map(tasks => tasks[DateTime.fromJSDate(date).minus({day: 1}).toFormat('yyyy-MM-dd')] ?? [])
+      )));
+    this.tasksFromToday = this.store.select(selectDate).pipe(
+      switchMap(date => this.store.select(selectTasks).pipe(
+        map(tasks => tasks[DateTime.fromJSDate(date).toFormat('yyyy-MM-dd')] ?? [])
+      )));
   }
 
   ngOnInit(): void {

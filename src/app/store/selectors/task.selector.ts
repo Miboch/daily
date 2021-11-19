@@ -8,3 +8,8 @@ export const selectTasksArray = createSelector(
   (state: AppTaskState) => state.tasks,
   tasks => Object.values(tasks)
 );
+
+export const selectTasks = createSelector(
+  selectTaskState,
+  state => state.tasks
+);

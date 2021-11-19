@@ -8,7 +8,7 @@ export enum TaskActions {
   COMPLETE_TASK = '[Tasks] Complete Task item'
 }
 
-export const replaceActions = createAction(
+export const replaceTasks = createAction(
   TaskActions.REPLACE_TASKS,
   props<TasksPayload>()
 );

@@ -9,8 +9,8 @@ import {TaskModel} from '../../model/task.model';
 
 export class TaskPanelComponent implements OnInit {
   @Input() heading: string = "";
-  @Input() tasks: TaskModel[] = [];
-  
+  @Input() tasks: TaskModel[] | null = [];
+
   constructor() {
   }
 

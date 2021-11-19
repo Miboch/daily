@@ -1,23 +1,26 @@
 <div class="gutters">
-  <div class="arrow-widget">
-    <div class="ico-wrapper">
-      <fa-icon [icon]="faLeft"></fa-icon>
-      <span>Prev</span>
+  <div class="main-grid">
+    <div class="aside">
+      <div class="arrow-widget">
+        <div class="ico-wrapper" (click)="navPrevious()">
+          <fa-icon [icon]="faLeft"></fa-icon>
+          <span>Prev</span>
+        </div>
+        <div class="ico-wrapper" (click)="navToday()">
+          <fa-icon [icon]="faToday"></fa-icon>
+          <span>Today</span>
+        </div>
+        <div class="ico-wrapper" (click)="navNext()">
+          <fa-icon [icon]="faRight"></fa-icon>
+          <span>Next</span>
+        </div>
+      </div>
     </div>
-
-    <div class="ico-wrapper">
-      <fa-icon [icon]="faToday"></fa-icon>
-      <span>Today</span>
+    <div class="main-outlet">
+      <router-outlet></router-outlet>
     </div>
-
-    <div class="ico-wrapper">
-      <fa-icon [icon]="faRight"></fa-icon>
-      <span>Next</span>
-    </div>
-
   </div>
-
-  <router-outlet></router-outlet>
-
-
+</div>
+<div class="date-decorator">
+  {{currentlySelectedDate$|async|date:'yyyy-MM-dd'}}
 </div>

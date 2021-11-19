@@ -9,7 +9,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {components, routedComponents, TasksComponent} from './components';
 import {RouterModule, Routes} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
-import {applicationReducer} from './store';
+import {applicationEffects, applicationReducer} from './store';
+import {HttpClientModule} from '@angular/common/http';
+import {EffectsModule} from '@ngrx/effects';
+import {dailyPipes, TaskDonePipe} from './pipes';
 
 
 const routes: Routes = [
@@ -28,7 +31,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ...routedComponents,
-    ...components
+    ...components,
+    ...dailyPipes
   ],
   imports: [
     BrowserModule,
@@ -37,9 +41,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     FontAwesomeModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot(applicationReducer)
+    StoreModule.forRoot(applicationReducer),
+    EffectsModule.forRoot(applicationEffects),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ...dailyPipes
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

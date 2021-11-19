@@ -1,0 +1,10 @@
+﻿<div class="task-creator-backdrop" *ngIf="creatingTask">
+  <div class="task-input-container">
+    <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
+  </div>
+</div>
+
+<ng-template #inputTemplate>
+  <input type="text" #taskInput>
+  <p>What needs doing?</p>
+</ng-template>

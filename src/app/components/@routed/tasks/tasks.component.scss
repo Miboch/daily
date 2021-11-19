@@ -1,23 +1,27 @@
 ﻿@import 'theme';
 
 .add-tasks-action {
-  color: col($primary);
-  margin-left: 1rem;
+  color: col($primary, -5);
   user-select: none;
-  cursor: pointer;
-  font-size: 14pt;
   white-space: nowrap;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  p {
+    font-size: 12pt;
+    margin: 0;
+  }
+
   span {
     margin-left: .25rem;
-  }
-  &:hover {
-    color: col($primary, 3);
-
   }
 }
 
 .detail-box {
   margin-left: auto;
+
   span {
     white-space: nowrap;
     padding: .25rem .5rem;
@@ -26,8 +30,13 @@
     margin-right: 1rem;
     border-radius: 5px;
     user-select: none;
+
     &:last-of-type {
       margin-right: 0;
     }
   }
+}
+
+.flex-row {
+  margin-top: 1rem;
 }
