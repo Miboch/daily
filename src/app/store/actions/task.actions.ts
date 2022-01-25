@@ -1,5 +1,5 @@
 ﻿import {createAction, props} from '@ngrx/store';
-import {StringPayload, TaskPayload, TasksPayload} from '../../model/state/payloads';
+import {CompleteTaskPayload, StringPayload, TaskPayload, TasksPayload} from '../../model/state/payloads';
 
 export enum TaskActions {
   REPLACE_TASKS = '[Tasks] replace task items',
@@ -25,5 +25,5 @@ export const deleteTask = createAction(
 
 export const completeTask = createAction(
   TaskActions.COMPLETE_TASK,
-  props<StringPayload>()
+  props<CompleteTaskPayload>()
 );

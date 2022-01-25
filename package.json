@@ -25,11 +25,13 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@ngrx/effects": "^13.0.1",
     "@ngrx/store": "^12.5.1",
+    "@types/uuid": "^8.3.4",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "luxon": "^2.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "uuid": "^8.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

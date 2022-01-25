@@ -1,11 +1,11 @@
 ﻿<div class="flex-row">
   <h1>Tasks</h1>
   <div class="detail-box">
-    <span>Completed: 0</span>
+    <span>Completed: {{((tasksFromToday|async)|taskDone)?.length}}</span>
     <span>Remaining: {{((tasksFromYesterday|async)|taskNotDone).length + ((tasksFromToday|async)|taskNotDone)?.length}}</span>
   </div>
 </div>
-<app-task-panel heading="Today's Tasks" [tasks]="tasksFromToday|async"></app-task-panel>
+<app-task-panel heading="Today's Tasks" [tasks]="(tasksFromToday|async)|taskNotDone"></app-task-panel>
 <app-task-panel heading="Yesterday's Incomplete Tasks" [tasks]="(tasksFromYesterday|async)|taskNotDone"
                 *ngIf="(tasksFromYesterday|async)?.length > 0"></app-task-panel>
 <app-task-creator></app-task-creator>

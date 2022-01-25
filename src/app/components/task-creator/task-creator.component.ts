@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {buffer, debounceTime, take, throttleTime} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {insertTask, selectDate} from '../../store';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-task-creator',
@@ -66,7 +67,7 @@ export class TaskCreatorComponent implements OnInit {
       this.store.dispatch(insertTask({
         payload: {
           description,
-          id: '',
+          id: uuidv4().toString(),
           created: this.currentDate,
           finished: undefined
         }
